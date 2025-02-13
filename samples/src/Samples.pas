@@ -33,6 +33,7 @@ type
     procedure Disconnect;
     procedure Log(const AValue: string);
     procedure HandlerButtons(const AConnected: Boolean);
+
   end;
 
 var
@@ -41,6 +42,9 @@ var
 implementation
 
 {$R *.dfm}
+
+uses
+  IdException;
 
 procedure TFrmMainMenu.btnClearClick(Sender: TObject);
 begin
@@ -73,10 +77,31 @@ begin
         Log(AText);
       end);
 
-    FBirdSocket
-      .AutoReconnect
-        .Active(True)
-        .Interval(20000);
+    FBirdSocket.AddEventListener(TEventType.ERROR,
+      procedure(const AException: Exception; var AForceDisconnect: Boolean)
+      begin
+        Log('== Error ==');
+        Log(AException.ClassName);
+        Log(AException.Message);
+        Log('====');
+
+        if AException.InheritsFrom(EIdConnClosedGracefully) then
+        begin
+          Log('Disconnected by server ...');
+          AForceDisconnect := True;
+          TThread.Queue(nil,
+                        procedure
+                        begin
+                          Sleep(1000);
+                          Disconnect;
+                        end);
+        end;
+      end);
+
+//    FBirdSocket
+//      .AutoReconnect
+//        .Active(True)
+//        .Interval(20000);
 
     FBirdSocket.Connect;
 

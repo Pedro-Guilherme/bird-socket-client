@@ -3,10 +3,9 @@ object FrmMainMenu: TFrmMainMenu
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsNone
   Caption = 'WebSocket Samples'
-  ClientHeight = 600
-  ClientWidth = 800
+  ClientHeight = 561
+  ClientWidth = 784
   Color = 15790320
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +19,7 @@ object FrmMainMenu: TFrmMainMenu
   object Panel1: TPanel
     Left = 0
     Top = 40
-    Width = 800
+    Width = 784
     Height = 105
     Align = alTop
     BevelOuter = bvNone
@@ -28,7 +27,7 @@ object FrmMainMenu: TFrmMainMenu
     ParentBackground = False
     TabOrder = 0
     DesignSize = (
-      800
+      784
       105)
     object lblServer: TLabel
       Left = 7
@@ -59,14 +58,14 @@ object FrmMainMenu: TFrmMainMenu
     object edtServer: TEdit
       Left = 7
       Top = 25
-      Width = 620
+      Width = 604
       Height = 21
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 0
       Text = 'ws://localhost:8080'
     end
     object btnDisconnect: TButton
-      Left = 714
+      Left = 698
       Top = 23
       Width = 75
       Height = 25
@@ -76,7 +75,7 @@ object FrmMainMenu: TFrmMainMenu
       OnClick = btnDisconnectClick
     end
     object btnConnect: TButton
-      Left = 633
+      Left = 617
       Top = 23
       Width = 75
       Height = 25
@@ -86,7 +85,7 @@ object FrmMainMenu: TFrmMainMenu
       OnClick = btnConnectClick
     end
     object btnSend: TButton
-      Left = 633
+      Left = 617
       Top = 69
       Width = 75
       Height = 25
@@ -98,13 +97,13 @@ object FrmMainMenu: TFrmMainMenu
     object edtText: TEdit
       Left = 7
       Top = 71
-      Width = 620
+      Width = 604
       Height = 21
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 3
     end
     object btnClear: TButton
-      Left = 714
+      Left = 698
       Top = 69
       Width = 75
       Height = 25
@@ -117,18 +116,18 @@ object FrmMainMenu: TFrmMainMenu
   object Panel7: TPanel
     Left = 0
     Top = 0
-    Width = 800
+    Width = 784
     Height = 40
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
     DesignSize = (
-      800
+      784
       40)
     object imgHeader: TImage
       Left = 0
       Top = 0
-      Width = 800
+      Width = 784
       Height = 40
       Align = alClient
       ExplicitLeft = 344
@@ -137,7 +136,7 @@ object FrmMainMenu: TFrmMainMenu
       ExplicitHeight = 105
     end
     object imgClose: TImage
-      Left = 759
+      Left = 743
       Top = 5
       Width = 30
       Height = 30
@@ -147,14 +146,15 @@ object FrmMainMenu: TFrmMainMenu
       Proportional = True
       Transparent = True
       OnClick = imgCloseClick
+      ExplicitLeft = 759
     end
   end
   object ListBoxLog: TListBox
     AlignWithMargins = True
     Left = 7
     Top = 145
-    Width = 786
-    Height = 448
+    Width = 770
+    Height = 409
     Margins.Left = 7
     Margins.Top = 0
     Margins.Right = 7
